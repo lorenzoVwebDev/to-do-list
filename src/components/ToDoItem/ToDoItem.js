@@ -1,8 +1,7 @@
 import React from 'react';
 import { createUseStyles }from 'react-jss';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 //
-import './ToDoItem.css';
 
 /* const useStyles = createUseStyles({
   todoitem: {
@@ -29,17 +28,25 @@ function TodoItem({ task, deleteTask, toggleCompleted}) {
   
   return (
     <div className="todo-item">
+      <p>{task.text}</p>
+      <div>
       <input
         type="checkbox"
         checked={task.completed}
         onChange={handleChange}
       />
-      <p>{task.text}</p>
       <button onClick={() => deleteTask(task.id)}>
-        X
+        <span>X</span>
       </button>
+      </div>
     </div>
   )
 };
 
 export default TodoItem;
+
+TodoItem.propTypes = {
+  task: PropTypes.object.isRequired,
+  deleteTask: PropTypes.func.isRequired,
+  toggleCompleted: PropTypes.func.isRequired
+}

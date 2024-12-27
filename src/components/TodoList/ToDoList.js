@@ -44,7 +44,17 @@ function ToDoList() {
   };
 
   return (
+  <div className="list-container">
     <div className="todo-list">
+      <form className="form-input" onSubmit={() => addTask(text)}>
+        <input type="text" min="5" required
+          value={text}
+          onChange={e => setText(e.target.value)}
+          placeholder="Insert Event Here"
+        />
+        <button type="submit" className="submit-button">Add Event</button>
+      </form>    
+      <div className="items-container">        
       {
         tasks.map(task => {
           return (
@@ -57,13 +67,9 @@ function ToDoList() {
           )
         })
       }
-      <input
-        value={text}
-        onChange={e => setText(e.target.value)}
-        placeHolder="Add text here"
-      />
-      <button onClick={() => addTask(text)}>Add</button>
+      </div>
     </div>
+  </div>
   )
 
 };
