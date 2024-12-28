@@ -30,13 +30,25 @@ header {
   align-items: center;
   justify-content: center;
   background-color: $blue-fb;
-  & a {
+/*   font-size: calc(1vw + 0.5vh); */
+  & div {
     color: black;
-    border-style: solid;
     transform: scaleY(0.8) scaleX(0.9);
     padding-right: 1vw;
     padding-left: 1vw;
+    & a {
+      border-style: solid;
+    }
   }
+}
+
+.header-0-2-4 {
+  text-align: center;
+  font-family: Poppins, serif;
+  font-weight: 700;
+  font-style: normal;
+  color: gray;
+  font-size: calc(1vw + 3vh);
 }
 
 .list-container {
@@ -65,7 +77,20 @@ header {
   padding-left: 3vw;
   padding-right: 3vw;
   & .input-wrapper {
+    display: flex;
+    align-items: center;
     position: relative;
+    height: 100%;
+    & input {
+      height: 63%;
+      border: none;
+      border-bottom-style: solid;
+      border-color: hsla(0, 0%, 50%, 0.4);
+      border-radius: 5px;
+      &::placeholder {
+        font-size: calc(0.4vw + 0.8vh);
+      }
+    }
     &:hover div {
       opacity: 1;
     }
@@ -101,8 +126,9 @@ header {
 
   & .submit-button {
     position: relative;
+    font-size: calc(0.5vw + 1vh);
     width: 15vw;
-    height: 100%;
+    height: 80%;
     @include poppin-regular();
     background-color: $blue-fb;
     color: $white-font;
@@ -183,4 +209,8 @@ header {
 .submit-button:hover .tool-tip {
   opacity: 1;
 }
+
+@import './_adaptive.scss';
+
+//scaling
 
