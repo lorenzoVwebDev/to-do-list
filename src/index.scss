@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet');
+//importing mixins: it automatically change the extension in the text below and remove the _ as well.
+@import './mixin';
 
 * {
   margin: 0;
@@ -9,41 +11,7 @@
   text-decoration: none;
 }
 
-@mixin poppin-thin() {
-  font-family: "Poppins", serif;
-  font-weight: 100;
-  font-style: normal;
-}
 
-@mixin poppin-regular() {
-  font-family: "Poppins", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-@mixin poppin-semibold() {
-  font-family: "Poppins", serif;
-  font-weight: 600;
-  font-style: normal;
-}
-
-@mixin poppin-bold() {
-  font-family: "Poppins", serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-@mixin poppin-italic-regular() {
-  font-family: "Poppins", serif;
-  font-weight: 400;
-  font-style: italic;
-}
-
-@mixin roboto-arial-regular() {
-  font-family: "Roboto Condensed", serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-} 
 
 $background-color1: #F7F9FA;
 $background-color2: #ECEDF6;
@@ -62,13 +30,25 @@ header {
   align-items: center;
   justify-content: center;
   background-color: $blue-fb;
-  & a {
+/*   font-size: calc(1vw + 0.5vh); */
+  & div {
     color: black;
-    border-style: solid;
     transform: scaleY(0.8) scaleX(0.9);
     padding-right: 1vw;
     padding-left: 1vw;
+    & a {
+      border-style: solid;
+    }
   }
+}
+
+.header-0-2-4 {
+  text-align: center;
+  font-family: Poppins, serif;
+  font-weight: 700;
+  font-style: normal;
+  color: gray;
+  font-size: calc(1vw + 3vh);
 }
 
 .list-container {
@@ -97,7 +77,26 @@ header {
   padding-left: 3vw;
   padding-right: 3vw;
   & .input-wrapper {
+    display: flex;
+    align-items: center;
     position: relative;
+    height: 100%;
+    & input {
+      height: 63%;
+      border: none;
+      border-bottom-style: solid;
+      border-color: hsla(0, 0%, 50%, 0.4);
+      border-radius: 5px;
+      &::placeholder {
+        font-size: calc(0.4vw + 0.8vh);
+      }
+    }
+    &:hover div {
+      opacity: 1;
+    }
+    &:focus-within div{
+      opacity: 0;
+    }
   }
 
   & .input-wrapper div {
@@ -114,22 +113,22 @@ header {
     padding-right: 0.4vw;
     border-radius: 3px;
     transition: opacity 0.5s;
-    pointer-events: none;
     opacity: 0;
   }
 
-  & .input-wrapper:hover div {
+/*   & .input-wrapper:hover div {
     opacity: 1;
   }
 
   & .input-wrapper:focus-within div {
     opacity: 0;
-  }
+  } */
 
   & .submit-button {
     position: relative;
+    font-size: calc(0.5vw + 1vh);
     width: 15vw;
-    height: 100%;
+    height: 80%;
     @include poppin-regular();
     background-color: $blue-fb;
     color: $white-font;
@@ -210,4 +209,8 @@ header {
 .submit-button:hover .tool-tip {
   opacity: 1;
 }
+
+@import './_adaptive.scss';
+
+//scaling
 

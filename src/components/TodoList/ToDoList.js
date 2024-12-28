@@ -51,7 +51,7 @@ function ToDoList() {
         <input type="text" min="5" required
           value={text}
           onChange={e => setText(e.target.value)}
-          placeholder="Insert Event Here"
+          placeholder=" Insert Event Here"
         />
         <div>Enter event here</div>
         </div>
