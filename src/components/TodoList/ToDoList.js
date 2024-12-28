@@ -47,12 +47,15 @@ function ToDoList() {
   <div className="list-container">
     <div className="todo-list">
       <form className="form-input" onSubmit={() => addTask(text)}>
+        <div className="input-wrapper">
         <input type="text" min="5" required
           value={text}
           onChange={e => setText(e.target.value)}
           placeholder="Insert Event Here"
         />
-        <button type="submit" className="submit-button">Add Event</button>
+        <div>Enter event here</div>
+        </div>
+        <button type="submit" className="submit-button">Add Event<div className="tool-tip">Click here to add an event</div></button>
       </form>    
       <div className="items-container">        
       {
