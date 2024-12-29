@@ -87,6 +87,7 @@ header {
       border-bottom-style: solid;
       border-color: hsla(0, 0%, 50%, 0.4);
       border-radius: 5px;
+      padding-left: 2.5px;
       &::placeholder {
         font-size: calc(0.4vw + 0.8vh);
       }

@@ -19,7 +19,9 @@ function ToDoList() {
 
   const [text, setText] = useState('');
 
-  function addTask(text) {
+  function addTask(text, event) {
+    event.preventDefault();
+    
     const newTask = {
       id: Date.now(), //built in js function used to create a unique id (total milliseconds from 1970 to now)
       text,
@@ -46,12 +48,12 @@ function ToDoList() {
   return (
   <div className="list-container">
     <div className="todo-list">
-      <form className="form-input" onSubmit={() => addTask(text)}>
+      <form className="form-input" onSubmit={(event) => addTask(text, event)}>
         <div className="input-wrapper">
-        <input type="text" min="5" required
+        <input type="text" min="5" max="50" pattern="[a-zA-Z]*" required
           value={text}
           onChange={e => setText(e.target.value)}
-          placeholder=" Insert Event Here"
+          placeholder="Insert Event Here"
         />
         <div>Enter event here</div>
         </div>
